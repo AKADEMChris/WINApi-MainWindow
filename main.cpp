@@ -90,19 +90,8 @@ INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInst, LPSTR lpCmdLine, IN
 	return msg.wParam;
 }
 
-//void GetWindowPos(int* x, int* y) 
-//{
-//	RECT rect = { NULL };
-//	if (GetWindowRect(hwnd, &rect)) 
-//	{
-//		*x = rect.left;
-//		*y = rect.top;
-//	}
-//}
 INT CALLBACK WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
-
-
 	switch (uMsg)
 	{
 		break;
@@ -112,13 +101,6 @@ INT CALLBACK WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		break;
 	case WM_MOVE:
 	{
-		//MessageBox(hwnd, "двигается", "Info", MB_YESNO | MB_ICONINFORMATION);
-		/*CONST INT SIZE = 256;
-				CHAR sz_buffer[SIZE] = {};
-				HWND hEditLogin = GetDlgItem(hwnd, IDC_EDIT_LOGIN);
-				SendMessage(hEditLogin, WM_GETTEXT, SIZE, (LPARAM)sz_buffer);
-				if (strcmp(sz_buffer, gsz_DEFAULT_LOGIN_MESSAGE) == 0)
-					SendMessage(hEditLogin, WM_SETTEXT, 0, (LPARAM)"");*/
 		CONST INT SIZE = 256;
 		CHAR sz_buffer[SIZE] = {};
 		RECT rect = { NULL };
