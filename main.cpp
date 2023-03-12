@@ -1,22 +1,22 @@
-#include <Windows.h>
+п»ї#include <Windows.h>
 #include<iostream>
 #include "resource.h"
 
 
-/*1. MainWindow должно запускаться ровно посередине экрана. Для этого нужно определить размер экрана (разрешение экрана),
-   вычислить размер окна и вычислить начальную позицию окна. Все эти свойства нужно передать функции CreateWindowEx().
-   Для того чтобы определить разрешение экрана используется функция GetSystemMetrics();
-2. При изменении размера окна и его положения на экране все эти параметры должны отображаться в заголовке окна.
-   Для того чтобы установить заголовок окна нужно послать окну сообщение WM_SETTEXT.
-   При перемещении окна и изменении его размеров, окну неявно посылаются сообщения WM_MOVE и MW_SIZE;
-3. При закрытии окна должно выдаваться сообщение "Вы действительно хотите закрыть окно?" "Да", "Нет";*/
+/*1. MainWindow РґРѕР»Р¶РЅРѕ Р·Р°РїСѓСЃРєР°С‚СЊСЃСЏ СЂРѕРІРЅРѕ РїРѕСЃРµСЂРµРґРёРЅРµ СЌРєСЂР°РЅР°. Р”Р»СЏ СЌС‚РѕРіРѕ РЅСѓР¶РЅРѕ РѕРїСЂРµРґРµР»РёС‚СЊ СЂР°Р·РјРµСЂ СЌРєСЂР°РЅР° (СЂР°Р·СЂРµС€РµРЅРёРµ СЌРєСЂР°РЅР°),
+   РІС‹С‡РёСЃР»РёС‚СЊ СЂР°Р·РјРµСЂ РѕРєРЅР° Рё РІС‹С‡РёСЃР»РёС‚СЊ РЅР°С‡Р°Р»СЊРЅСѓСЋ РїРѕР·РёС†РёСЋ РѕРєРЅР°. Р’СЃРµ СЌС‚Рё СЃРІРѕР№СЃС‚РІР° РЅСѓР¶РЅРѕ РїРµСЂРµРґР°С‚СЊ С„СѓРЅРєС†РёРё CreateWindowEx().
+   Р”Р»СЏ С‚РѕРіРѕ С‡С‚РѕР±С‹ РѕРїСЂРµРґРµР»РёС‚СЊ СЂР°Р·СЂРµС€РµРЅРёРµ СЌРєСЂР°РЅР° РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ С„СѓРЅРєС†РёСЏ GetSystemMetrics();
+2. РџСЂРё РёР·РјРµРЅРµРЅРёРё СЂР°Р·РјРµСЂР° РѕРєРЅР° Рё РµРіРѕ РїРѕР»РѕР¶РµРЅРёСЏ РЅР° СЌРєСЂР°РЅРµ РІСЃРµ СЌС‚Рё РїР°СЂР°РјРµС‚СЂС‹ РґРѕР»Р¶РЅС‹ РѕС‚РѕР±СЂР°Р¶Р°С‚СЊСЃСЏ РІ Р·Р°РіРѕР»РѕРІРєРµ РѕРєРЅР°.
+   Р”Р»СЏ С‚РѕРіРѕ С‡С‚РѕР±С‹ СѓСЃС‚Р°РЅРѕРІРёС‚СЊ Р·Р°РіРѕР»РѕРІРѕРє РѕРєРЅР° РЅСѓР¶РЅРѕ РїРѕСЃР»Р°С‚СЊ РѕРєРЅСѓ СЃРѕРѕР±С‰РµРЅРёРµ WM_SETTEXT.
+   РџСЂРё РїРµСЂРµРјРµС‰РµРЅРёРё РѕРєРЅР° Рё РёР·РјРµРЅРµРЅРёРё РµРіРѕ СЂР°Р·РјРµСЂРѕРІ, РѕРєРЅСѓ РЅРµСЏРІРЅРѕ РїРѕСЃС‹Р»Р°СЋС‚СЃСЏ СЃРѕРѕР±С‰РµРЅРёСЏ WM_MOVE Рё MW_SIZE;
+3. РџСЂРё Р·Р°РєСЂС‹С‚РёРё РѕРєРЅР° РґРѕР»Р¶РЅРѕ РІС‹РґР°РІР°С‚СЊСЃСЏ СЃРѕРѕР±С‰РµРЅРёРµ "Р’С‹ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕ С…РѕС‚РёС‚Рµ Р·Р°РєСЂС‹С‚СЊ РѕРєРЅРѕ?" "Р”Р°", "РќРµС‚";*/
 
 
 CONST CHAR g_sz_ClassName[] = "MySandwichClass";
 INT CALLBACK WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInst, LPSTR lpCmdLine, INT nCmdShow)
 {
-	//1) Регистрация класса окна
+	//1) Р РµРіРёСЃС‚СЂР°С†РёСЏ РєР»Р°СЃСЃР° РѕРєРЅР°
 	WNDCLASSEX wc;
 	ZeroMemory(&wc, sizeof(wc));
 
@@ -26,12 +26,12 @@ INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInst, LPSTR lpCmdLine, IN
 	wc.style = 0;
 	/*wc.hIcon = (HICON)LoadIcon(hInstance, MAKEINTRESOURCE(IDI_ICON1));
 	wc.hIconSm = (HICON)LoadIcon(hInstance, MAKEINTRESOURCE(IDI_ICON2));*/
-	//альтернатива
+	//Р°Р»СЊС‚РµСЂРЅР°С‚РёРІР°
 	wc.hIcon = (HICON)LoadImage(hInstance, "beer.ico", IMAGE_ICON, LR_DEFAULTSIZE, LR_DEFAULTSIZE, LR_LOADFROMFILE);
 	wc.hIconSm = (HICON)LoadImage(hInstance, "sandwich.ico", IMAGE_ICON, LR_DEFAULTSIZE, LR_DEFAULTSIZE, LR_LOADFROMFILE);
 	//
 	wc.hCursor = (HCURSOR)LoadImage(hInstance, "Sandwich.cur", IMAGE_CURSOR, LR_DEFAULTSIZE, LR_DEFAULTSIZE, LR_LOADFROMFILE);
-	wc.hInstance = hInstance;//задаем экзмепляр *exe файла
+	wc.hInstance = hInstance;//Р·Р°РґР°РµРј СЌРєР·РјРµРїР»СЏСЂ *exe С„Р°Р№Р»Р°
 	wc.hbrBackground = (HBRUSH)COLOR_WINDOW;
 	wc.lpfnWndProc = (WNDPROC)WndProc;
 	wc.lpszMenuName = NULL;
@@ -43,7 +43,7 @@ INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInst, LPSTR lpCmdLine, IN
 		return 0;
 	}
 
-	//2) Создание окна
+	//2) РЎРѕР·РґР°РЅРёРµ РѕРєРЅР°
 	int h = 300, w = 600;
 	RECT rc;
 	rc.right = w;
@@ -58,15 +58,15 @@ INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInst, LPSTR lpCmdLine, IN
 	int win_y = (screen_h / 2) - (win_h / 2);
 	HWND hwnd = CreateWindowEx
 	(
-		NULL,//exStyle- расширенный стиль окна
-		g_sz_ClassName,//имя класса окна
-		"",//заголов окна
-		WS_OVERLAPPEDWINDOW,//стиль окна (обычное, диалоговое,кнопка,текстовое и тд)
-		win_x, win_y, //начальные координаты окна(лев верх)
-		win_w, win_h,//размер окна
-		//начальные координаты и размер окна всегда задаются в пикселах
-		NULL,//роидетльское окна как всегда у WS_OVERLAPPEDWINDOW
-		NULL,//меню отсутствует
+		NULL,//exStyle- СЂР°СЃС€РёСЂРµРЅРЅС‹Р№ СЃС‚РёР»СЊ РѕРєРЅР°
+		g_sz_ClassName,//РёРјСЏ РєР»Р°СЃСЃР° РѕРєРЅР°
+		"",//Р·Р°РіРѕР»РѕРІ РѕРєРЅР°
+		WS_OVERLAPPEDWINDOW,//СЃС‚РёР»СЊ РѕРєРЅР° (РѕР±С‹С‡РЅРѕРµ, РґРёР°Р»РѕРіРѕРІРѕРµ,РєРЅРѕРїРєР°,С‚РµРєСЃС‚РѕРІРѕРµ Рё С‚Рґ)
+		win_x, win_y, //РЅР°С‡Р°Р»СЊРЅС‹Рµ РєРѕРѕСЂРґРёРЅР°С‚С‹ РѕРєРЅР°(Р»РµРІ РІРµСЂС…)
+		win_w, win_h,//СЂР°Р·РјРµСЂ РѕРєРЅР°
+		//РЅР°С‡Р°Р»СЊРЅС‹Рµ РєРѕРѕСЂРґРёРЅР°С‚С‹ Рё СЂР°Р·РјРµСЂ РѕРєРЅР° РІСЃРµРіРґР° Р·Р°РґР°СЋС‚СЃСЏ РІ РїРёРєСЃРµР»Р°С…
+		NULL,//СЂРѕРёРґРµС‚Р»СЊСЃРєРѕРµ РѕРєРЅР° РєР°Рє РІСЃРµРіРґР° Сѓ WS_OVERLAPPEDWINDOW
+		NULL,//РјРµРЅСЋ РѕС‚СЃСѓС‚СЃС‚РІСѓРµС‚
 		hInstance,
 		NULL
 	);
@@ -77,10 +77,10 @@ INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInst, LPSTR lpCmdLine, IN
 		return 0;
 	}
 
-	ShowWindow(hwnd, nCmdShow);//задаем режим отображения окна (свернуто в окно, развернуто на весь экран, свернуто на панель задач итд)
-	UpdateWindow(hwnd);//прорисовывает содержимое окна
+	ShowWindow(hwnd, nCmdShow);//Р·Р°РґР°РµРј СЂРµР¶РёРј РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РѕРєРЅР° (СЃРІРµСЂРЅСѓС‚Рѕ РІ РѕРєРЅРѕ, СЂР°Р·РІРµСЂРЅСѓС‚Рѕ РЅР° РІРµСЃСЊ СЌРєСЂР°РЅ, СЃРІРµСЂРЅСѓС‚Рѕ РЅР° РїР°РЅРµР»СЊ Р·Р°РґР°С‡ РёС‚Рґ)
+	UpdateWindow(hwnd);//РїСЂРѕСЂРёСЃРѕРІС‹РІР°РµС‚ СЃРѕРґРµСЂР¶РёРјРѕРµ РѕРєРЅР°
 
-	//3) Запуск цикла сообщений
+	//3) Р—Р°РїСѓСЃРє С†РёРєР»Р° СЃРѕРѕР±С‰РµРЅРёР№
 	MSG msg;
 	while (GetMessage(&msg, NULL, 0, 0) > 0)
 	{
@@ -112,7 +112,7 @@ INT CALLBACK WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		break;
 	case WM_MOVE:
 	{
-		//MessageBox(hwnd, "двигается", "Info", MB_YESNO | MB_ICONINFORMATION);
+		//MessageBox(hwnd, "РґРІРёРіР°РµС‚СЃСЏ", "Info", MB_YESNO | MB_ICONINFORMATION);
 		/*CONST INT SIZE = 256;
 				CHAR sz_buffer[SIZE] = {};
 				HWND hEditLogin = GetDlgItem(hwnd, IDC_EDIT_LOGIN);
@@ -145,7 +145,7 @@ INT CALLBACK WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		break;
 	case WM_CLOSE:
 	{
-		int message = MessageBox(hwnd, "Выйти?", "Info", MB_YESNO | MB_ICONINFORMATION);
+		int message = MessageBox(hwnd, "Р’С‹Р№С‚Рё?", "Info", MB_YESNO | MB_ICONINFORMATION);
 		switch (message)
 		{
 		case IDYES: DestroyWindow(hwnd); break;
